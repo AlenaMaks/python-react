@@ -1,3 +1,4 @@
+# 4 задание
 while True:
     number = input("Введите число: ")
     if number == 'exit':
