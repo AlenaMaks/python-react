@@ -12,5 +12,6 @@ for i in range(len(a)):
         value = ''
 
 set_lst = set(lst)
+print()
 for key in set_lst:
     print(f"{key}: {lst.count(key)}")
