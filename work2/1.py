@@ -14,7 +14,7 @@ for i in range(len(a)):
         lst.append(value)
         value = ''
         
-print(lst)
+# print(lst)
 
 st = int(input("Введите степень: "))
 for i in range(len(lst)):
