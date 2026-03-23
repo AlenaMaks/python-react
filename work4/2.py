@@ -15,3 +15,5 @@ def easy_num(stop):
         
 for num in easy_num(stop):
     print(num)
+
+# print(next(easy_num(stop)))
