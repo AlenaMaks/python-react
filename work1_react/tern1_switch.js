@@ -32,10 +32,10 @@ switch (true) {
             default: 
             switch (true) {
                 case (a % 2 == 0):
-                step3 = 6
-                break
+                    step3 = 6
+                    break
                 default:
-                step3 = 7
+                    step3 = 7
             }
         }
         console.log("Значение a: ", a)

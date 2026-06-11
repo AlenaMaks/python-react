@@ -22,7 +22,7 @@ else {
     }
     else {
         if (a % 2 == 0) {
-        step3 = 6
+            step3 = 6
         }
         else step3 = 7
     }
