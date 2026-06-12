@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Новости
+{% endblock %}
+
+{% block content %}
+
+<h1>Новости</h1>
+
+<form method="GET">
+
+    <input
+        type="text"
+        name="search"
+        value="{{ search }}"
+        placeholder="Поиск по названию"
+    >
+
+    <button type="submit">
+        Найти
+    </button>
+
+</form>
+
+<p>
+    Сортировка:
+    <a href="?search={{ search }}&sort=new">
+        Сначала новые
+    </a>
+    |
+    <a href="?search={{ search }}&sort=old">
+        Сначала старые
+    </a>
+</p>
+
+<br>
+
+{% for news in news_list %}
+
+<div>
+
+    <h3>
+        <a href="{% url 'news_detail' news.id %}">
+            {{ news.title }}
+        </a>
+    </h3>
+
+    <p>
+        Автор: {{ news.author }}
+    </p>
+
+    <p>
+        Дата: {{ news.created_at }}
+    </p>
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+{% endblock %}
