@@ -1,0 +1,34 @@
+.home-news {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.home-news .card h3 {
+    margin-top: 0;
+}
+
+.home-news .card {
+    height: 100%;
+}
+
+@media (max-width: 900px) {
+    .home-news {
+        grid-template-columns: 1fr;
+    }
+}
+
+.news-preview {
+    color: #a5a5a5;
+    line-height: 1.5;
+    margin: 12px 0;
+}
+
+.home-news .card small {
+    color: #777;
+}
+
+.home-news .card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}

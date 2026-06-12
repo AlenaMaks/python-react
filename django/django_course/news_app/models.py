@@ -31,3 +31,34 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Comment(models.Model):
+    news = models.ForeignKey(
+        News,
+        on_delete=models.CASCADE,
+        verbose_name='Новость'
+    )
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name='Пользователь'
+    )
+
+    text = models.TextField(
+        max_length=1000,
+        verbose_name='Комментарий'
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Дата создания'
+    )
+
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name='Активен'
+    )
+
+    def __str__(self):
+        return f'{self.user.username} - {self.news.title}'

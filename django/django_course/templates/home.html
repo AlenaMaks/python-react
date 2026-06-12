@@ -1,20 +1,35 @@
 {% extends 'layout.html' %}
+{% load static %}
 
-{% block title %} Главная {% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
+{% block title %}Главная{% endblock %}
 {% block content %}
-<h1>Главная страница</h1>
-<p>Сайт компании.</p>
 
-<h2>Последние новости</h2>
-
-{% for news in latest_news %}
-
-<div>
-    <h3>{{ news.title }}</h3>
-    <p> Автор: {{ news.author }} </p>
-    <p> {{ news.created_at }} </p>
+<h1 class="page-title">Главная</h1>
+<div class="content-box">
+    <h2>О компании</h2>
+    <p>
+        Добро пожаловать на официальный сайт компании.
+        Здесь публикуются последние новости, обновления и важная информация.
+    </p>
 </div>
-<hr>
-{% endfor %}
+
+<h2 class="page-title">Последние новости</h2>
+<div class="home-news">
+    {% for news in latest_news %}
+        <div class="card">
+            <h3>
+                <a href="{% url 'news_detail' news.id %}">{{ news.title }}</a>
+            </h3>
+            <p>Автор: {{ news.author }}</p>
+            <p class="news-preview">
+                {{ news.content|truncatechars:40 }}
+            </p>
+            <small>{{ news.created_at }}</small>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

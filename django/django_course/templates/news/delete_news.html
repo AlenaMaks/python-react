@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Удаление новости{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Удаление новости</h1>
+<div class="content-box auth-form">
+    <p>Вы действительно хотите удалить новость:</p>
+
+    <h3>"{{ news.title }}"</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn danger">Удалить</button>
+    </form>
+    <p>
+        <a href="{% url 'news_detail' news.id %}">
+            Отмена
+        </a>
+    </p>
+</div>
+{% endblock %}

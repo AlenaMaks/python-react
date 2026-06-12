@@ -1,0 +1,26 @@
+.profile-box {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.profile-box h3 {
+    margin-top: 0;
+}
+
+.profile-box p {
+    color: #b0b0b0;
+}
+
+.profile-box a {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.profile-comment {
+    color: #a5a5a5;
+    line-height: 1.5;
+}
+
+.card small {
+    color: #666;
+}

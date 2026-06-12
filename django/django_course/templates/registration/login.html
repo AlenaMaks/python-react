@@ -1,13 +1,23 @@
 {% extends 'layout.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
 
 {% block title %}Вход{% endblock %}
 
 {% block content %}
-<h1>Вход</h1>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-</form>
+<h1 class="page-title">Вход</h1>
+
+<div class="content-box auth-form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Войти</button>
+    </form>
+</div>
+
 {% endblock %}

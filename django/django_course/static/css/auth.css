@@ -1,0 +1,35 @@
+.auth-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.auth-form p {
+    margin-bottom: 15px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b0b0b0;
+}
+
+.auth-form button {
+    margin-top: 10px;
+}
+
+.form-errors {
+    margin-top: 15px;
+    padding: 10px;
+    background: #4a1f1f;
+    border: 1px solid #7a2c2c;
+    border-radius: 8px;
+    color: #ffb3b3;
+}
+
+.auth-form h3 {
+    margin: 20px 0;
+}
+
+.auth-form form {
+    margin-bottom: 15px;
+}

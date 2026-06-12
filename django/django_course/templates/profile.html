@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block title %}Профиль{% endblock %}
+{% block content %}
+
+<h1 class="page-title">Профиль пользователя</h1>
+<div class="content-box profile-box">
+    <h3>{{ user.username }}</h3>
+    <p>Добро пожаловать в личный кабинет.</p>
+    <p>
+        <a href="{% url 'password_change' %}">Сменить пароль</a>
+    </p>
+</div>
+
+<h2 class="page-title">Мои комментарии</h2>
+{% for comment in comments %}
+    <div class="card">
+        <h3>
+            <a href="{% url 'news_detail' comment.news.id %}">{{ comment.news.title }}</a>
+        </h3>
+        <p class="profile-comment">{{ comment.text }}</p>
+        <small>{{ comment.created_at }}</small>
+    </div>
+{% empty %}
+    <div class="content-box"> Вы еще не оставили ни одного комментария. </div>
+{% endfor %}
+{% endblock %}

@@ -1,14 +1,74 @@
 {% extends 'layout.html' %}
+{% load static %}
 
-{% block title %} {{ news.title }} {% endblock %}
-
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+{% block title %}{{ news.title }}{% endblock %}
 {% block content %}
-    <h1>{{ news.title }}</h1>
-    <p> Автор: {{ news.author }} </p>
-    <p> Дата публикации: {{ news.created_at }} </p>
+
+<h1 class="page-title">{{ news.title }}</h1>
+
+<div class="content-box news-detail">
+    <div class="news-meta">
+        <span>Автор: {{ news.author }}</span>
+        <span>{{ news.created_at }}</span>
+    </div>
+
+    {% if user.is_staff %}
+        <div class="admin-actions">
+            <a href="{% url 'edit_news' news.id %}" class="action-btn">
+                Редактировать
+            </a>
+
+            <a href="{% url 'delete_news' news.id %}" class="action-btn delete-btn">
+                Удалить
+            </a>
+        </div>
+    {% endif %}
 
     {% if news.image_url %}
-        <img src="{{ news.image_url }}" width="500">
+        <img src="{{ news.image_url }}">
     {% endif %}
-    <p> {{ news.content }} </p>
+
+    <div class="news-text">
+        {{ news.content }}
+    </div>
+</div>
+
+<h2 class="page-title">Комментарии</h2>
+
+{% for comment in comments %}
+    <div class="card comment-card">
+        <div class="comment-header">
+            <strong>{{ comment.user.username }}</strong>
+            <small>{{ comment.created_at }}</small>
+        </div>
+
+        <p>{{ comment.text }}</p>
+    </div>
+{% empty %}
+    <div class="content-box">
+        Комментариев пока нет
+    </div>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <div class="content-box">
+        <h3>Добавить комментарий</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+{% else %}
+    <div class="content-box">
+        Для добавления комментария необходимо
+        <a href="{% url 'login' %}">войти</a>.
+    </div>
+{% endif %}
+
 {% endblock %}
