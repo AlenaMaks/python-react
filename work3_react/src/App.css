@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #d0e2ff;
+}
+
+/* для заголовка страницы */
+h1 {
+    text-align: center;
+    color:rgb(135, 181, 255)
+}
+
+/* для заголовков столбцов */
+h2 {
+    text-align: center;
+    color:rgb(135, 181, 255)
+}
+
+/* общее пространство для разделения на блоки */
+.container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    color:rgb(121, 149, 194)
+}
+
+/* блок с пользователями */
+.users-block {
+    width: 30%;
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+/* блок с их постами */
+.posts-block {
+    width: 70%;
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+/* оформление отедльного usera + для компакнтности */
+.user-card {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.user-card h3:hover {
+    color: rgb(115, 146, 251);
+}
+.user-card h3 {
+    margin: 0;
+    font-size: 11pt;
+}
+.user-card p {
+    margin: 0;
+    font-size: 10pt;
+}
+
+/* оформление отдельного поста */
+.post-card {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.post-card h3 {
+    margin-top: 0;
+}
