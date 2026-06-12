@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import News
-from django.db.models.functions import Lower
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import redirect
 
 from django.shortcuts import render, get_object_or_404
 
@@ -54,4 +55,26 @@ def news_detail(request, news_id):
         request,
         'news/news_detail.html',
         {'news': news}
+    )
+    
+def register(request):
+
+    if request.method == 'POST':
+
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('login')
+
+    else:
+        form = UserCreationForm()
+
+    return render(
+        request,
+        'registration/register.html',
+        {
+            'form': form
+        }
     )

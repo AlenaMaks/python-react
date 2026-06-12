@@ -15,19 +15,15 @@
         {{ user.username }}
         <form action="{% url 'logout' %}" method="post" style="display:inline;">
             {% csrf_token %}
-            <button type="submit">
-                Выход
-            </button>
+            <button type="submit">Выход</button>
         </form>
     {% else %}
-        <a href="{% url 'login' %}"> Вход </a>
+        <a href="{% url 'login' %}">Вход</a>
+        <a href="{% url 'register' %}">Регистрация</a>
     {% endif %}
 </nav>
 
 <hr>
-
-{% block content %}
-{% endblock %}
-
+{% block content %}{% endblock %}
 </body>
 </html>
